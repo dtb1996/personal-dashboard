@@ -1,0 +1,27 @@
+.card {
+    background-color: var(--color-bg-light);
+    color: var(--color-text);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: var(--shadow-elevation-1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-elevation-2);
+        background-color: var(--color-bg-highlight);
+    }
+}
+
+.title {
+    font-size: 1.125rem;
+    font-weight: bold;
+}
+
+.content {
+    font-size: 0.875rem;
+    flex: 1;
+}
