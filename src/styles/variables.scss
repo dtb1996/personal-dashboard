@@ -1,0 +1,30 @@
+/* Dark theme (default) */
+:root {
+  --color-bg-dark: hsl(40, 7%, 8%);
+  --color-bg: hsl(40, 7%, 10%);
+  --color-bg-light: hsl(0, 0%, 13%);
+  --color-bg-highlight: hsl(0, 0%, 19%);
+  --color-text: hsl(0, 0%, 95%);
+  --color-text-muted: hsl(0, 0%, 70%);
+  --color-primary: hsl(210, 100%, 68%);
+
+  --shadow-elevation-1: 0 2px 4px rgba(0, 0, 0, 0.6);
+  --shadow-elevation-2: 0 4px 6px rgba(0, 0, 0, 0.7);
+
+  --ff: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --navbar-height: 64px;
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --color-bg-dark: hsl(40, 7%, 87%);
+  --color-bg: hsl(40, 7%, 90%);
+  --color-bg-light: hsl(0, 0%, 96%);
+  --color-bg-highlight: hsl(0, 0%, 81%);
+  --color-text: hsl(0, 0%, 5%);
+  --color-text-muted: hsl(0, 0%, 30%);
+  --color-primary: hsl(210, 100%, 68%);
+
+  --shadow-elevation-1: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-elevation-2: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
