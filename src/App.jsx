@@ -2,9 +2,12 @@ import { useState, useEffect } from 'react'
 import Sidebar from "./components/Sidebar/Sidebar"
 import Header from "./components/Header/Header"
 import Dashboard from './pages/Dashboard/Dashboard'
+import styles from "./App.module.scss"
+import { useSwipeable } from 'react-swipeable'
 
 function App() {
   const [theme, setTheme] = useState("dark")
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   useEffect(() => {
     // Check if user has a saved theme preference
@@ -25,6 +28,17 @@ function App() {
     }
   }, [])
 
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth > 768 && sidebarOpen) {
+        setSidebarOpen(false)
+      }
+    }
+
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [sidebarOpen])
+
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark"
     setTheme(newTheme)
@@ -32,16 +46,37 @@ function App() {
     localStorage.setItem("theme", newTheme) 
   }
 
+  const handleSidebarToggle = () => {
+    setSidebarOpen(!sidebarOpen)
+  }
+
+  const currentYear = new Date().getFullYear()
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => setSidebarOpen(false),
+    onSwipedRight: () => setSidebarOpen(true),
+    preventDefaultTouchmoveEvent: false
+  })
+
   return (
-    <div data-theme={theme} style={{ display: "flex", height: "100vh" }}>
-      <Sidebar />
-      <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-        <Header />
-        <main style={{ padding: "1rem", flex: 1 }}>
-          <Dashboard />
+    <div data-theme={theme} className={styles.app}>
+      <Sidebar sidebarOpen={sidebarOpen} />
+      <div className={styles.mainCol}>
+        <header>
+          <Header />
+        </header>
+        <main>
           <button onClick={toggleTheme}>Toggle theme</button>
+          <button onClick={handleSidebarToggle}>Show Sidebar</button>
+          <Dashboard />
         </main>
+        <footer>
+          <p>Copyright &copy; {currentYear} Rolling Pixels. All rights reserved.</p>
+        </footer>
       </div>
+
+      {sidebarOpen && (<div className={styles.backdrop} onClick={handleSidebarToggle} />)}
+      {/* <div className={styles.touchArea} {...handlers} /> */}
     </div>
   )
 }

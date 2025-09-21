@@ -1,7 +1,6 @@
 .sidebar {
     width: 200px;
     background-color: var(--color-bg-dark);
-    color: var(--color-text);
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -22,5 +21,21 @@
 
     &:hover {
         background-color: var(--color-bg-highlight);
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 100;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .show {
+        transform: translateX(0);
     }
 }

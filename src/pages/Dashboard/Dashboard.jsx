@@ -7,6 +7,17 @@ export default function Dashboard() {
             <Card title="Weather" content={"Sunny, 72°F"} />
             <Card title="Weather" content={"Sunny, 72°F"} />
             <Card title="Weather" content={"Sunny, 72°F"} />
+            <Card title="Weather" content={<h1>This is a test component This is a test component This is a test component</h1>} />
+            <Card title="Weather" content={<h1>This is a test component This is a test component This is a test component</h1>} />
+            <Card title="Weather" content={<h1>This is a test component This is a test component This is a test component</h1>} />
+            <Card title="Weather" content={"Sunny, 72°F"} />
+            <Card title="Weather" content={"Sunny, 72°F"} />
+            <Card title="Weather" content={"Sunny, 72°F"} />
+            <Card title="Weather" content={"Sunny, 72°F"} />
+            <Card title="Weather" content={<h1>This is a test component This is a test component This is a test component</h1>} />
+            <Card title="Weather" content={"Sunny, 72°F"} />
+            <Card title="Weather" content={"Sunny, 72°F"} />
+            <Card title="Weather" content={"Sunny, 72°F"} />
             <Card title="Weather" content={"Sunny, 72°F"} />
         </div>
     )
