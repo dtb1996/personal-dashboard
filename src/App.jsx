@@ -6,27 +6,7 @@ import styles from "./App.module.scss"
 import { useSwipeable } from 'react-swipeable'
 
 function App() {
-  const [theme, setTheme] = useState("dark")
   const [sidebarOpen, setSidebarOpen] = useState(false)
-
-  useEffect(() => {
-    // Check if user has a saved theme preference
-    const savedTheme = localStorage.getItem("theme")
-    if (savedTheme) {
-        setTheme(savedTheme)
-        document.documentElement.setAttribute("data-theme", savedTheme)
-        return
-    }
-
-    // Check for system theme preference
-    const prefersLight = window.matchMedia("(prefers-color-scheme: light").match
-    if (prefersLight) {
-        setTheme("light")
-        document.documentElement.setAttribute("data-theme", "light")
-    } else {
-        document.documentElement.setAttribute("data-theme", "dark")
-    }
-  }, [])
 
   useEffect(() => {
     function handleResize() {
@@ -38,13 +18,6 @@ function App() {
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [sidebarOpen])
-
-  const toggleTheme = () => {
-    const newTheme = theme === "dark" ? "light" : "dark"
-    setTheme(newTheme)
-    document.documentElement.setAttribute("data-theme", newTheme)
-    localStorage.setItem("theme", newTheme) 
-  }
 
   const handleSidebarToggle = () => {
     setSidebarOpen(!sidebarOpen)
@@ -59,15 +32,11 @@ function App() {
   })
 
   return (
-    <div data-theme={theme} className={styles.app}>
+    <div className={styles.app}>
       <Sidebar sidebarOpen={sidebarOpen} />
       <div className={styles.mainCol}>
-        <header>
-          <Header />
-        </header>
+        <Header showSidebar={() => setSidebarOpen(true)} sidebarOpen={sidebarOpen} />
         <main>
-          <button onClick={toggleTheme}>Toggle theme</button>
-          <button onClick={handleSidebarToggle}>Show Sidebar</button>
           <Dashboard />
         </main>
         <footer>
