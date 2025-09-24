@@ -1,4 +1,5 @@
 import Card from "../../components/Card/Card"
+import CalculatorCard from "./Cards/CalculatorCard/CalculatorCard"
 import TodoCard from "./Cards/TodoCard/TodoCard"
 import WeatherCard from "./Cards/WeatherCard/WeatherCard"
 import styles from "./Dashboard.module.scss"
@@ -8,6 +9,7 @@ export default function Dashboard() {
         <div className={styles.dashboardGrid}>
             <WeatherCard />
             <TodoCard />
+            <CalculatorCard />
             <Card title="Weather" content={"Sunny, 72°F"} />
             <Card title="Weather" content={"Sunny, 72°F"} />
             <Card title="Weather" content={"Sunny, 72°F"} />
