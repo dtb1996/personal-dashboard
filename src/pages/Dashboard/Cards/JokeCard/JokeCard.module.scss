@@ -1,0 +1,31 @@
+blockquote {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 1rem;
+
+    .joke {
+        flex: 1;
+
+        p:first-child {
+            margin-top: 0;
+        }
+
+        p {
+            margin-top: 0.75rem;
+        }
+    }
+
+    button {
+        margin-top: 0.75rem;
+        padding: 0.5rem 1rem;
+        border: none;
+        background-color: var(--color-bg-dark);
+        color: var(--color-text);
+        border-radius: 4px;
+
+        &:hover {
+            filter: brightness(1.1);
+        }
+    }
+}
