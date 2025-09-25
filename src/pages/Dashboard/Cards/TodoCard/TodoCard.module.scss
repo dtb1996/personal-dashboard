@@ -52,17 +52,5 @@
             border-radius: 4px;
             border: 1px solid var(--color-bg-highlight);
         }
-
-        button {
-            padding: 0.5rem 1rem;
-            border: none;
-            background-color: var(--color-bg-dark);
-            color: var(--color-text);
-            border-radius: 4px;
-
-            &:hover {
-                filter: brightness(1.1);
-            }
-        }
     }
 }

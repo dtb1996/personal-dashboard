@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import styles from "./JokeCard.module.scss"
 import Card from "../../../../components/Card/Card"
+import Button from "../../../../components/Button/Button"
 
 export default function JokeCard() {
     const [joke, setJoke] = useState(null)
@@ -55,7 +56,7 @@ export default function JokeCard() {
                         <p className={styles.single}>{joke.joke}</p>
                     )}
                 </div>
-                <button onClick={fetchJoke}>Get another</button>
+                <Button onClick={fetchJoke}>Get Another</Button>
             </blockquote>
         )
     }

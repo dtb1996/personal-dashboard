@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Card from "../../../../components/Card/Card"
 import styles from "./TodoCard.module.scss"
+import Button from "../../../../components/Button/Button"
 
 export default function TodoCard() {
     const [todos, setTodos] = useState([])
@@ -56,7 +57,7 @@ export default function TodoCard() {
                         className={todo.completed ? styles.completed : ""}
                     >
                         <span>{todo.text}</span>
-                        <button onClick={() => removeTodo(todo.id)}>X</button>
+                        <Button onClick={() => removeTodo(todo.id)}>X</Button>
                     </li>
                 ))}
             </ul>
@@ -68,7 +69,9 @@ export default function TodoCard() {
                     value={newTodo}
                     onChange={(e) => setNewTodo(e.target.value)}
                 />
-                <button type="submit">Add</button>
+                <Button type="submit" className={styles.button}>
+                    Add
+                </Button>
             </form>
         </div>
     )

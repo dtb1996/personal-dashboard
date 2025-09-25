@@ -2,6 +2,7 @@ import { useState } from "react"
 import styles from "./CalculatorCard.module.scss"
 import { calculate } from "../../../../utils/calculator"
 import Card from "../../../../components/Card/Card"
+import Button from "../../../../components/Button/Button"
 
 const keys = [
     { label: "7", type: "number" },
@@ -79,9 +80,9 @@ export default function CalculatorCard() {
             <h2 className={styles.display}>{calc.display}</h2>
             <div className={styles.keys}>
                 {keys.map((key) => (
-                    <button key={key.label} onClick={() => handleClick(key)}>
+                    <Button key={key.label} onClick={() => handleClick(key)}>
                         {key.label}
-                    </button>
+                    </Button>
                 ))}
             </div>
         </div>
