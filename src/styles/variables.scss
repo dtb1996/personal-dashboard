@@ -28,3 +28,55 @@
     --shadow-elevation-1: 0 2px 4px rgba(0, 0, 0, 0.1);
     --shadow-elevation-2: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
+
+[data-theme="forest"] {
+    --color-bg-dark: hsl(120, 20%, 10%);
+    --color-bg: hsl(120, 15%, 14%);
+    --color-bg-light: hsl(120, 10%, 20%);
+    --color-bg-highlight: hsl(120, 10%, 26%);
+    --color-text: hsl(120, 20%, 92%);
+    --color-text-muted: hsl(120, 10%, 65%);
+    --color-primary: hsl(140, 45%, 55%);
+
+    --shadow-elevation-1: 0 2px 4px rgba(0, 0, 0, 0.6);
+    --shadow-elevation-2: 0 4px 6px rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="ocean"] {
+    --color-bg-dark: hsl(210, 40%, 12%);
+    --color-bg: hsl(210, 35%, 16%);
+    --color-bg-light: hsl(210, 30%, 22%);
+    --color-bg-highlight: hsl(210, 25%, 28%);
+    --color-text: hsl(210, 40%, 96%);
+    --color-text-muted: hsl(210, 15%, 70%);
+    --color-primary: hsl(190, 100%, 60%);
+
+    --shadow-elevation-1: 0 2px 4px rgba(0, 0, 0, 0.6);
+    --shadow-elevation-2: 0 4px 6px rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="pastel"] {
+    --color-bg-dark: hsl(300, 20%, 92%);
+    --color-bg: hsl(300, 30%, 95%);
+    --color-bg-light: hsl(0, 0%, 100%);
+    --color-bg-highlight: hsl(280, 20%, 85%);
+    --color-text: hsl(300, 20%, 15%);
+    --color-text-muted: hsl(300, 10%, 40%);
+    --color-primary: hsl(340, 70%, 65%);
+
+    --shadow-elevation-1: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-elevation-2: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="cyberpunk"] {
+    --color-bg-dark: hsl(280, 30%, 10%);
+    --color-bg: hsl(280, 25%, 12%);
+    --color-bg-light: hsl(280, 20%, 18%);
+    --color-bg-highlight: hsl(280, 20%, 25%);
+    --color-text: hsl(300, 80%, 95%);
+    --color-text-muted: hsl(300, 20%, 65%);
+    --color-primary: hsl(310, 100%, 60%);
+
+    --shadow-elevation-1: 0 2px 6px rgba(255, 0, 255, 0.4);
+    --shadow-elevation-2: 0 4px 10px rgba(0, 255, 255, 0.4);
+}
