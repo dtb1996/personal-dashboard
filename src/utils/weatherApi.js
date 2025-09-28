@@ -1,5 +1,5 @@
 const CACHE_TTL = 10 * 60 * 1000
-const API_KEY = "4f203e09956f3653c7a0c96d5d598944"
+const API_KEY = import.meta.env.VITE_WEATHER_API_KEY
 
 export async function fetchWeather(coords) {
     if (!coords) throw new Error("Coordinates are required")
