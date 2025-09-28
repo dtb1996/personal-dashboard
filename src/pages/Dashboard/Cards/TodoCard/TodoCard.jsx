@@ -64,6 +64,7 @@ export default function TodoCard() {
 
             <form onSubmit={handleAddTodo}>
                 <input
+                    name="addTodo"
                     type="text"
                     placeholder="Add new todo"
                     value={newTodo}
