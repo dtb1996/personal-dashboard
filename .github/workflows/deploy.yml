@@ -1,52 +1,52 @@
 name: CI/CD Pipeline
 
 on:
-    push:
-        branches: [main, dev, feature/**]
-    pull_request:
-        branches: [main]
-    workflow_dispatch:
+  push:
+    branches: [main, dev, feature/**]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
-    lint:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
-              with:
-                  node-version: 20
-            - run: npm ci
-            - name: Run ESLint
-              run: npm run lint
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Run ESLint
+        run: npm run lint
 
-    test:
-        runs-on: ubuntu-latest
-        needs: lint
-        steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
-              with:
-                  node-version: 20
-            - run: npm ci
-            - name: Run tests
-              run: npm test -- --ci --watchAll=false
+  test:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Run tests
+        run: npm test -- --ci --watchAll=false
 
-    build:
-        runs-on: ubuntu-latest
-        needs: [lint, test]
-        env:
-            VITE_WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
-            VITE_NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
-        steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
-              with:
-                  node-version: 20
-            - run: npm ci
-            - name: Build project
-              run: npm run build
-            - name: Upload build artifacts
-              uses: actions/upload-artifact@v4
-              with:
-                  name: site-build
-                  path: dist
+  build:
+    runs-on: ubuntu-latest
+    needs: [lint, test]
+    env:
+      VITE_WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+      VITE_NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - name: Build project
+        run: npm run build
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-build
+          path: dist
