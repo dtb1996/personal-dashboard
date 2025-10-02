@@ -24,7 +24,7 @@ export async function fetchPriceFromSymbol(symbol, { signal }) {
     return hist
         .map((d) => ({
             symbol,
-            date: d.date.slice(5),
+            date: d.date,
             price: d.price,
             volume: d.volume,
         }))

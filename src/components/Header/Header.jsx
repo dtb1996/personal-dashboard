@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react"
 import styles from "./Header.module.scss"
-import ThemeToggle from "../ThemeToggle/ThemeToggle"
 import { GiHamburgerMenu } from "react-icons/gi"
+import dayjs from "dayjs"
+import { useSettings } from "../../context/useSettings"
 
 export default function Header({ showSidebar, sidebarOpen }) {
     const [currentDate, setCurrentDate] = useState(new Date())
+
+    const { settings } = useSettings()
+
+    const formatDate = (date) => {
+        return dayjs(date).format(settings.dateFormat)
+    }
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -17,7 +24,6 @@ export default function Header({ showSidebar, sidebarOpen }) {
     return (
         <header className={styles.header}>
             <div className={styles.buttons}>
-                {/* <ThemeToggle /> */}
                 {!sidebarOpen && (
                     <button className={styles.toggle} onClick={showSidebar}>
                         <GiHamburgerMenu />
@@ -25,7 +31,7 @@ export default function Header({ showSidebar, sidebarOpen }) {
                 )}
             </div>
             <div>My Dashboard</div>
-            <div>{currentDate.toLocaleDateString()}</div>
+            <div>{formatDate(currentDate.toLocaleDateString())}</div>
         </header>
     )
 }

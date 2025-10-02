@@ -1,5 +1,11 @@
 @use "./variables";
 
+:root {
+    --font-size-small: 14px;
+    --font-size-medium: 16px;
+    --font-size-large: 18px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,6 +20,18 @@ body {
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+body.small-font {
+    font-size: var(--font-size-small);
+}
+
+body.medium-font {
+    font-size: var(--font-size-medium);
+}
+
+body.large-font {
+    font-size: var(--font-size-large);
 }
 
 #root {

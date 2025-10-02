@@ -13,6 +13,8 @@ import {
     XAxis,
     YAxis,
 } from "recharts"
+import { useSettings } from "../../../../context/useSettings"
+import dayjs from "dayjs"
 
 export default function StockCard() {
     const [watchlist, setWatchlist] = useState(
@@ -24,17 +26,21 @@ export default function StockCard() {
     const [loading, setLoading] = useState(false)
     const [newSymbol, setNewSymbol] = useState("")
 
+    const { settings } = useSettings()
+
     useEffect(() => {
         localStorage.setItem("watchlist", JSON.stringify(watchlist))
     }, [watchlist])
 
     useEffect(() => {
-        if (!activeSymbol) {
+        if (!activeSymbol || settings.refreshInterval === "off") {
             setData(null)
             setError(null)
             setLoading(false)
             return
         }
+
+        let interval
 
         const controller = new AbortController()
         const signal = controller.signal
@@ -42,18 +48,34 @@ export default function StockCard() {
         setLoading(true)
         setError(null)
 
-        fetchPriceFromSymbol(activeSymbol, { signal })
-            .then((data) => {
-                setData(data)
-                setError(null)
-            })
-            .catch((err) => {
-                setError(err.message)
-                setData(null)
-            })
-            .finally(() => setLoading(false))
+        const fetchData = () => {
+            fetchPriceFromSymbol(activeSymbol, { signal })
+                .then((data) => {
+                    setData(data)
+                    setError(null)
+                })
+                .catch((err) => {
+                    setError(err.message)
+                    setData(null)
+                })
+                .finally(() => setLoading(false))
+        }
 
-        return () => controller.abort()
+        fetchData()
+
+        const ms =
+            settings.refreshInterval === "30s"
+                ? 30000
+                : settings.refreshInterval === "1m"
+                  ? 60000
+                  : 300000
+
+        interval = setInterval(fetchData, ms)
+
+        return () => {
+            controller.abort()
+            clearInterval(interval)
+        }
     }, [activeSymbol])
 
     const handleSetActive = (symbol) => setActiveSymbol(symbol)
@@ -91,6 +113,10 @@ export default function StockCard() {
         if (event.key === "Enter") {
             handleAddSymbol()
         }
+    }
+
+    const formatDate = (date) => {
+        return dayjs(date).format(settings.dateFormat.slice(0, 5))
     }
 
     let content
@@ -140,6 +166,7 @@ export default function StockCard() {
                                 />
                                 <XAxis
                                     dataKey="date"
+                                    tickFormatter={(date) => formatDate(date)}
                                     tick={{ fill: "var(--color-text-muted)", fontSize: 11 }}
                                     axisLine={{ stroke: "var(--color-text-muted)" }}
                                     tickLine={{ stroke: "var(--color-text-muted)" }}

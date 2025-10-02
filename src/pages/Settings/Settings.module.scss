@@ -1,6 +1,9 @@
 .settings {
-    .settingsEntry {
-        margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .setting {
         padding: 1rem 1.5rem;
         display: flex;
         justify-content: space-between;
@@ -8,11 +11,15 @@
         gap: 1rem;
         background-color: var(--color-bg-highlight);
         border-radius: 4px;
+
+        label {
+            font-weight: 600;
+        }
     }
 }
 
 @media (max-width: 350px) {
-    .settingsEntry {
+    .setting {
         flex-direction: column;
         justify-content: flex-start;
     }
