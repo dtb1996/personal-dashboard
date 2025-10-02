@@ -19,8 +19,15 @@
 }
 
 @media (max-width: 350px) {
-    .setting {
-        flex-direction: column;
-        justify-content: flex-start;
+    .settings {
+        h2,
+        .actions {
+            margin: 0 auto;
+        }
+
+        .setting {
+            flex-direction: column;
+            justify-content: flex-start;
+        }
     }
 }
