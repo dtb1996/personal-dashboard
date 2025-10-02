@@ -115,8 +115,10 @@ export default function StockCard() {
         }
     }
 
-    const formatDate = (date) => {
-        return dayjs(date).format(settings.dateFormat.slice(0, 5))
+    const formatDate = (date, withYear = true) => {
+        return withYear
+            ? dayjs(date).format(settings.dateFormat)
+            : dayjs(date).format(settings.dateFormat.replace("/YYYY", ""))
     }
 
     let content
@@ -166,7 +168,7 @@ export default function StockCard() {
                                 />
                                 <XAxis
                                     dataKey="date"
-                                    tickFormatter={(date) => formatDate(date)}
+                                    tickFormatter={(date) => formatDate(date, false)}
                                     tick={{ fill: "var(--color-text-muted)", fontSize: 11 }}
                                     axisLine={{ stroke: "var(--color-text-muted)" }}
                                     tickLine={{ stroke: "var(--color-text-muted)" }}
@@ -179,13 +181,36 @@ export default function StockCard() {
                                     tickFormatter={(val) => `$${val}`}
                                 />
                                 <Tooltip
+                                    // outer wrapper (positioning)
                                     wrapperStyle={{
+                                        pointerEvents: "none", // Prevent tooltip from blocking hover
+                                    }}
+                                    // Inner content box
+                                    contentStyle={{
                                         backgroundColor: "var(--color-bg-light)",
                                         color: "var(--color-text)",
-                                        borderRadius: "4px",
+                                        borderRadius: 6,
                                         border: "1px solid var(--color-bg-highlight)",
+                                        boxShadow: "var(--shadow-elevation-1)",
+                                        padding: "0.5rem 0.75rem",
                                     }}
-                                    labelStyle={{ fontWeight: "bold", color: "var(--color-text)" }}
+                                    // Label (date)
+                                    labelStyle={{
+                                        fontWeight: "700",
+                                        color: "var(--color-text)",
+                                    }}
+                                    // Tooltip items
+                                    itemStyle={{
+                                        color: "var(--color-text)",
+                                    }}
+                                    // Date formatter
+                                    labelFormatter={(date) => formatDate(date)}
+                                    // Numeric formatting
+                                    formatter={(value) =>
+                                        typeof value === "number"
+                                            ? [`$${value.toFixed(2)}`, "Close"]
+                                            : value
+                                    }
                                 />
                                 <Legend wrapperStyle={{ color: "var(--color-text)" }} />
                                 <Line
