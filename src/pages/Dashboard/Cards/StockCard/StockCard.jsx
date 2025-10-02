@@ -76,7 +76,7 @@ export default function StockCard() {
             controller.abort()
             clearInterval(interval)
         }
-    }, [activeSymbol])
+    }, [activeSymbol, settings.refreshInterval])
 
     const handleSetActive = (symbol) => setActiveSymbol(symbol)
 
