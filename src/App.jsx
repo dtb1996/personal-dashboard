@@ -6,6 +6,7 @@ import styles from "./App.module.scss"
 import { useSwipeable } from "react-swipeable"
 import Settings from "./pages/Settings/Settings"
 import { useSettings } from "./context/useSettings"
+import Profile from "./pages/Profile/Profile"
 
 function App() {
     const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -52,6 +53,7 @@ function App() {
                 <main>
                     {page === "dashboard" && <Dashboard />}
                     {page === "settings" && <Settings />}
+                    {page === "profile" && <Profile />}
                 </main>
                 <footer>
                     <p>Copyright &copy; {currentYear} Rolling Pixels. All rights reserved.</p>
