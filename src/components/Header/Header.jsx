@@ -4,7 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import dayjs from "dayjs"
 import { useSettings } from "../../context/useSettings"
 
-export default function Header({ showSidebar, sidebarOpen }) {
+export default function Header({ showSidebar }) {
     const [currentDate, setCurrentDate] = useState(new Date())
 
     const { settings } = useSettings()
@@ -23,15 +23,11 @@ export default function Header({ showSidebar, sidebarOpen }) {
 
     return (
         <header className={styles.header}>
-            <div className={styles.buttons}>
-                {!sidebarOpen && (
-                    <button className={styles.toggle} onClick={showSidebar}>
-                        <GiHamburgerMenu />
-                    </button>
-                )}
-            </div>
-            <div>My Dashboard</div>
-            <div>{formatDate(currentDate.toLocaleDateString())}</div>
+            <button className={styles.toggle} onClick={showSidebar}>
+                <GiHamburgerMenu />
+            </button>
+            <h4>My Dashboard</h4>
+            <h4>{formatDate(currentDate.toLocaleDateString())}</h4>
         </header>
     )
 }

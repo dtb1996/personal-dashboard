@@ -5,40 +5,39 @@
     justify-content: space-between;
     padding: 1rem;
     box-shadow: var(--shadow-elevation-2);
+    position: relative;
 
-    .buttons {
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
+    .toggle {
+        background: none;
+        border: none;
+        color: var(--color-text);
+        display: none;
 
-        .toggle {
-            background: none;
-            border: none;
-            color: var(--color-text);
-            display: none;
+        svg {
+            font-size: 1.5rem;
+            transition: color 0.2s;
+        }
 
-            svg {
-                font-size: 1.5rem;
-                transition: color 0.2s;
-            }
+        &:hover {
+            color: var(--color-primary);
+        }
 
-            &:hover {
-                color: var(--color-primary);
-            }
-
-            &:active {
-                filter: brightness(1.2);
-            }
+        &:active {
+            filter: brightness(1.2);
         }
     }
 }
 
 @media (max-width: 768px) {
     .header {
-        .buttons {
-            .toggle {
-                display: block;
-            }
+        .toggle {
+            display: block;
+        }
+
+        h4:first-of-type {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
 }

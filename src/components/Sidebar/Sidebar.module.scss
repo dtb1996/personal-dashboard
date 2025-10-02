@@ -33,9 +33,11 @@
         z-index: 100;
         transform: translateX(-100%);
         transition: transform 0.3s ease;
+        box-shadow: none;
     }
 
     .show {
         transform: translateX(0);
+        box-shadow: var(--shadow-elevation-1);
     }
 }

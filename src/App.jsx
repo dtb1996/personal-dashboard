@@ -47,9 +47,9 @@ function App() {
 
     return (
         <div className={styles.app}>
-            <Sidebar sidebarOpen={sidebarOpen} openPage={setPage} />
+            <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} openPage={setPage} />
             <div className={styles.mainCol}>
-                <Header showSidebar={() => setSidebarOpen(true)} sidebarOpen={sidebarOpen} />
+                <Header showSidebar={() => setSidebarOpen(true)} />
                 <main>
                     {page === "dashboard" && <Dashboard />}
                     {page === "settings" && <Settings />}
