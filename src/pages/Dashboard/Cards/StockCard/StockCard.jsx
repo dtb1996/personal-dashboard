@@ -46,7 +46,6 @@ export default function StockCard() {
             .then((data) => {
                 setData(data)
                 setError(null)
-                console.log(data)
             })
             .catch((err) => {
                 setError(err.message)
