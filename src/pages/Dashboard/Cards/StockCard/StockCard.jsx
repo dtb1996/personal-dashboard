@@ -126,7 +126,7 @@ export default function StockCard() {
     content = (
         <div className={styles.content}>
             {/* Add symbols */}
-            <div className={styles.manage}>
+            <form onSubmit={handleAddSymbol}>
                 <input
                     type="text"
                     placeholder="Add symbol..."
@@ -134,10 +134,8 @@ export default function StockCard() {
                     onChange={(e) => setNewSymbol(e.target.value)}
                     onKeyDown={handleKeyDown}
                 />
-                <Button type="button" onClick={handleAddSymbol}>
-                    Add
-                </Button>
-            </div>
+                <Button type="submit">Add</Button>
+            </form>
 
             {watchlist.length > 0 && (
                 <>

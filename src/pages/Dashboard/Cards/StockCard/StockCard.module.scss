@@ -6,9 +6,19 @@
     gap: 1rem;
     height: 100%;
 
-    .manage {
+    form {
         display: flex;
         gap: 0.5rem;
+        flex-wrap: wrap;
+
+        input {
+            flex: 1;
+            min-width: 0;
+        }
+
+        button {
+            flex-shrink: 0;
+        }
     }
 
     .dropdown {
