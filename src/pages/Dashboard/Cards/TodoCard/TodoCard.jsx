@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Card from "../../../../components/Card/Card"
 import styles from "./TodoCard.module.scss"
 import Button from "../../../../components/Button/Button"
@@ -7,11 +7,11 @@ export default function TodoCard() {
     const [todos, setTodos] = useState([])
     const [newTodo, setNewTodo] = useState("")
 
-    const STORAGE_KEY = "dashboardTodos"
+    const didMount = useRef(false)
 
     // Load todos from LocalStorage
     useEffect(() => {
-        const saved = localStorage.getItem(STORAGE_KEY)
+        const saved = localStorage.getItem("dashboardTodos")
         if (saved) {
             setTodos(JSON.parse(saved))
         }
@@ -19,7 +19,11 @@ export default function TodoCard() {
 
     // Save todos to LocalStorage
     useEffect(() => {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(todos))
+        if (didMount.current) {
+            localStorage.setItem("dashboardTodos", JSON.stringify(todos))
+        } else {
+            didMount.current = true
+        }
     }, [todos])
 
     const handleAddTodo = (e) => {
