@@ -4,7 +4,7 @@ export async function fetchNews({ signal } = {}) {
 
     const url = isLocal
         ? `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`
-        : "/.netlify/functions/news"
+        : "/netlify/functions/news"
 
     const res = await fetch(url, { signal })
 

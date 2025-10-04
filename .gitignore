@@ -28,7 +28,6 @@ dist-ssr
 
 # Local .netlify folder
 .netlify/*
-!.netlify/functions
 
 # Local secrets file
 .secrets
