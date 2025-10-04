@@ -23,11 +23,12 @@ dist-ssr
 *.sln
 *.sw?
 
-# Local env files
+# Local env file
 .env
 
 # Local Netlify folder
 .netlify
+!.netlify/functions
 
 # Local secrets file
 .secrets
