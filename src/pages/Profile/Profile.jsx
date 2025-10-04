@@ -4,7 +4,7 @@ import styles from "./Profile.module.scss"
 import Button from "../../components/Button/Button"
 
 export default function Profile() {
-    const { settings, setSettings } = useSettings()
+    const { settings } = useSettings()
 
     const formatDate = (date) => {
         return dayjs(date).format(settings.dateFormat)

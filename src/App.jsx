@@ -3,7 +3,7 @@ import Sidebar from "./components/Sidebar/Sidebar"
 import Header from "./components/Header/Header"
 import Dashboard from "./pages/Dashboard/Dashboard"
 import styles from "./App.module.scss"
-import { useSwipeable } from "react-swipeable"
+// import { useSwipeable } from "react-swipeable"
 import Settings from "./pages/Settings/Settings"
 import { useSettings } from "./context/useSettings"
 import Profile from "./pages/Profile/Profile"
@@ -39,11 +39,11 @@ function App() {
 
     const currentYear = new Date().getFullYear()
 
-    const handlers = useSwipeable({
-        onSwipedLeft: () => setSidebarOpen(false),
-        onSwipedRight: () => setSidebarOpen(true),
-        preventDefaultTouchmoveEvent: false,
-    })
+    // const handlers = useSwipeable({
+    //     onSwipedLeft: () => setSidebarOpen(false),
+    //     onSwipedRight: () => setSidebarOpen(true),
+    //     preventDefaultTouchmoveEvent: false,
+    // })
 
     return (
         <div className={styles.app}>
