@@ -1,6 +1,6 @@
 import fetch from "node-fetch"
 
-export async function handler(event) {
+export async function handler(_event) {
     const API_KEY = process.env.NEWS_API_KEY
     const url = `https://newsapi.org/v2/top-headlines?country=us&pageSize=5&apiKey=${API_KEY}`
 

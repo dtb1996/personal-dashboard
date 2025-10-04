@@ -30,4 +30,13 @@ export default defineConfig([
             semi: ["error", "never"],
         },
     },
+    {
+        files: [".netlify/functions/**/*.js"],
+        languageOptions: {
+            globals: globals.node,
+        },
+        rules: {
+            "no-unused-vars": ["warn"],
+        },
+    },
 ])
