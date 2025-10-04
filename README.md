@@ -3,19 +3,23 @@
 A customizable dashboard built with **React** and **SCSS modules**.
 It includes a collection of interactive cards (weather, calculator, todos, jokes, etc.) with a responsive layout and theming support.
 
-Check out the live website here: [https://dillon-personal-dashboard.netlify.app/](https://dillon-personal-dashboard.netlify.app/)
-
 ## Features
 
-- **Consistent Card UI:** all dashboard widgets use a shared `<Card />` component for styling.
+- **Reusable Card System:** all dashboard widgets use a shared `<Card />` component for styling.
 - **Weather Card:** fetches live weather data using [OpenWeather API](https://openweathermap.org/api).
-- **Todo Card:** add, remove, and mark tasks as complete.
+- **Todo Card:** add, remove, and mark tasks as complete — automatically saved in LocalStorage.
 - **Calculator Card:** simple math calculator.
 - **Joke Card:** fetches random jokes from [JokeAPI](https://jokeapi.dev/).
-- **Theme Toggle** light/dark theme switching.
+- **Stock Tracker Card:** displays live stock data from [Financial Modeling Prep](https://site.financialmodelingprep.com/).
+- **News Feed:** fetches top headlines via [NewsAPI](https://newsapi.org/).
+- **Theme Toggle:** allows switching between multiple visual themes.
 - **Responsive Layout:** adaptive sidebar, sticky header/footer, and grid/flexbox handling.
+- **CI/CD:** GitHub Actions pipeline for linting, testing, building, and deploying to Netlify.
+- **Automated Screenshots:** Playwright test captures dashboard images for documentation.
 
 ## Screenshots / Demo
+
+**Live Demo:** [https://dillon-personal-dashboard.netlify.app/](https://dillon-personal-dashboard.netlify.app/)
 
 ### Dashboard Layout
 
@@ -27,10 +31,12 @@ Check out the live website here: [https://dillon-personal-dashboard.netlify.app/
 
 ## Tech Stack
 
-- **Front End:** [React](https://react.dev/), [ReactIcons](https://github.com/react-icons/react-icons)
-- **Styling:** [SCSS Modules](https://sass-lang.com/)
-- **Tooling:** [Vite](https://vite.dev/) build tool
-- **Code Quality and Formatting:** [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)
+- **Front End:** [React](https://react.dev/), [ReactIcons](https://github.com/react-icons/react-icons), [Vite](https://vite.dev/)
+- **Styling:** [SCSS Modules](https://sass-lang.com/), CSS Variables
+- **API Integration:** [OpenWeather API](https://openweathermap.org/api), [NewsAPI](https://newsapi.org/), [JokeAPI](https://jokeapi.dev/), [Financial Modeling Prep](https://site.financialmodelingprep.com/)
+- **Documentation:** [Playwright](https://playwright.dev/) for automated UI screenshots
+- **Linting & Formatting:** [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)
+- **CI/CD:** GitHub Actions, [Netlify](https://www.netlify.com/)
 
 ## Getting Started
 
@@ -55,6 +61,7 @@ npm run dev
 ```bash
 src/
 ├── components/      # Reusable UI components (Card, Header, etc.)
+├── context/         # Settings context setup
 ├── pages/           # Main site pages (Dashboard, Settings, Profile)
 │	└── Dashboard    # Cards found on the Dashboard
 ├── styles/          # Global styles
@@ -69,3 +76,7 @@ src/
 3. Commit changes (`git commit -m "Add feature"`)
 4. Push to the branch (`git push origin feature/your-feature`)
 5. Open a Pull Request
+
+## License
+
+MIT © 2025 Rolling Pixels
