@@ -3,6 +3,8 @@
 A customizable dashboard built with **React** and **SCSS modules**.
 It includes a collection of interactive cards (weather, calculator, todos, jokes, etc.) with a responsive layout and theming support.
 
+Check out the live website here: [https://dillon-personal-dashboard.netlify.app/](https://dillon-personal-dashboard.netlify.app/)
+
 ## Features
 
 - **Consistent Card UI:** all dashboard widgets use a shared `<Card />` component for styling.
