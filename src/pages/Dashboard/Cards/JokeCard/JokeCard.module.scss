@@ -6,6 +6,7 @@ blockquote {
 
     .joke {
         flex: 1;
+        overflow-wrap: break-word;
 
         p:first-child {
             margin-top: 0;
