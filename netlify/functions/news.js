@@ -1,4 +1,4 @@
-export async function handler(_event) {
+exports.handler = async function (event, context) {
     const API_KEY = process.env.NEWS_API_KEY
     const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`
 
