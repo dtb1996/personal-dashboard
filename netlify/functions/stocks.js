@@ -1,7 +1,7 @@
 export async function handler(event) {
     const API_KEY = process.env.VITE_STOCK_API_KEY
 
-    // Grab symbol from query parameters, default to AAPL
+    // Check for parameters
     const symbol = event.queryStringParameters?.symbol || "AAPL"
     const from = event.queryStringParameters?.from || "2025-09-22"
     const to = event.queryStringParameters?.to || "2025-09-29"
