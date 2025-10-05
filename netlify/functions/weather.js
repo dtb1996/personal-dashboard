@@ -1,7 +1,7 @@
-export async function handler(_event) {
+export async function handler(event) {
     const API_KEY = process.env.VITE_WEATHER_API_KEY
-    const lat = "43.14116777737955"
-    const lon = "-72.44858329414396"
+    const lat = event.queryStringParameters?.lat || "43.14116777737955"
+    const lon = event.queryStringParameters?.lon || "-72.44858329414396"
 
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${API_KEY}`
 
