@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Button from "../../../../components/Button/Button"
 import Card from "../../../../components/Card/Card"
 import styles from "./StockCard.module.scss"
-import { fetchPriceFromSymbol } from "../../../../utils/stocks"
+import { getStocks } from "../../../../utils/stocks"
 import {
     CartesianGrid,
     Legend,
@@ -49,7 +49,7 @@ export default function StockCard() {
         setError(null)
 
         const fetchData = () => {
-            fetchPriceFromSymbol(activeSymbol, { signal })
+            getStocks(activeSymbol, { signal })
                 .then((data) => {
                     setData(data)
                     setError(null)
