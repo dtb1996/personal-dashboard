@@ -19,25 +19,22 @@ It includes a collection of interactive cards (weather, calculator, todos, jokes
 
 ## Screenshots / Demo
 
-**Live Demo:** [https://dillon-personal-dashboard.netlify.app/](https://dillon-personal-dashboard.netlify.app/)
-
 ### Dashboard Layout
 
 ![Dashboard Screenshot](docs/screenshots/dashboard.png)
 
 ### Live Demo
 
-[Live Demo Link]()
+[https://dillon-personal-dashboard.netlify.app/](https://dillon-personal-dashboard.netlify.app/)
 
 ## Tech Stack
 
 - **Front End:** [React](https://react.dev/), [ReactIcons](https://github.com/react-icons/react-icons), [Vite](https://vite.dev/)
 - **Styling:** [SCSS Modules](https://sass-lang.com/), CSS Variables
-- **API Integration:** [OpenWeather API](https://openweathermap.org/api), [NewsAPI](https://newsapi.org/), [JokeAPI](https://jokeapi.dev/), [Financial Modeling Prep](https://site.financialmodelingprep.com/)
 - **Documentation:** [Playwright](https://playwright.dev/) for automated UI screenshots
 - **Linting & Formatting:** [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)
 - **CI/CD:** GitHub Actions, [Netlify](https://www.netlify.com/)
-
+- **APIs:** [OpenWeather API](https://openweathermap.org/api), [NewsAPI](https://newsapi.org/), [JokeAPI](https://jokeapi.dev/), [Financial Modeling Prep](https://site.financialmodelingprep.com/)
 - **API Integration:** Serverless functions on Netlify handle requests to third-party APIs securely:
     - **Weather:** OpenWeather API via `netlify/functions/weather.js`
     - **Stocks:** Financial Modeling Prep API via `netlify/functions/stocks.js`
