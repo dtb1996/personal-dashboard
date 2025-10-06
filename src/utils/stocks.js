@@ -1,32 +1,16 @@
-const API_KEY = import.meta.env.VITE_STOCK_API_KEY
+import dayjs from "dayjs"
 
-export async function fetchPriceFromSymbol(symbol, { signal }) {
-    const from = "2025-09-22"
-    const to = "2025-09-29"
+export async function getStocks(symbol, { signal } = {}) {
+    const from = dayjs().subtract(7, "day").format("YYYY-MM-DD")
+    const to = dayjs().format("YYYY-MM-DD")
 
-    const res = await fetch(
-        `https://financialmodelingprep.com/stable/historical-price-eod/light?symbol=${symbol}&from=${from}&to=${to}&apikey=${API_KEY}`,
-        signal
-    )
+    const res = await fetch(`/.netlify/functions/stocks?symbol=${symbol}&from=${from}&to=${to}`, {
+        signal,
+    })
 
     if (!res.ok) {
-        throw new Error(`Failed to fetch stock price: ${res.status}`)
+        throw new Error(`Fetch failed: ${res.status}`)
     }
 
-    const json = await res.json()
-
-    const hist = Array.isArray(json) ? json : Array.isArray(json.historical) ? json.historical : []
-
-    if (!hist.length) {
-        throw new Error("No historical data returned")
-    }
-
-    return hist
-        .map((d) => ({
-            symbol,
-            date: d.date,
-            price: d.price,
-            volume: d.volume,
-        }))
-        .reverse()
+    return res.json()
 }

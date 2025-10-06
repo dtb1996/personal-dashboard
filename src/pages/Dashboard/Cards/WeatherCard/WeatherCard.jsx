@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Card from "../../../../components/Card/Card"
 import styles from "./WeatherCard.module.scss"
-import { fetchWeather } from "../../../../utils/weatherApi"
+import { fetchWeather } from "../../../../utils/weather"
 
 export default function WeatherCard() {
     const [coords, setCoords] = useState(null)

@@ -38,6 +38,11 @@ It includes a collection of interactive cards (weather, calculator, todos, jokes
 - **Linting & Formatting:** [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)
 - **CI/CD:** GitHub Actions, [Netlify](https://www.netlify.com/)
 
+- **API Integration:** Serverless functions on Netlify handle requests to third-party APIs securely:
+    - **Weather:** OpenWeather API via `netlify/functions/weather.js`
+    - **Stocks:** Financial Modeling Prep API via `netlify/functions/stocks.js`
+    - **News:** NewsAPI via `netlify/functions/news.js`
+
 ## Getting Started
 
 Clone the repo and run locally:
